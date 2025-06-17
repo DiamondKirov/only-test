@@ -8,6 +8,7 @@ interface Props {
   title: string;
   isActive?: boolean;
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 export const CircleItem: FC<Props> = ({
@@ -16,12 +17,14 @@ export const CircleItem: FC<Props> = ({
   title,
   isActive,
   style,
+  onClick,
 }) => {
   return (
     <button
       className={classNames(styles["circle-item"], className, {
         [styles["circle-item--active"]]: isActive,
       })}
+      onClick={onClick}
       style={style}
     >
       <div className={styles["circle-item__number"]}>{number}</div>

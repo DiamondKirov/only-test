@@ -1,8 +1,20 @@
+@use "../../../app/styles/mixins.scss" as *;
+
 .year {
-  font-size: 10rem;
+  font-size: 12.5rem;
+  line-height: 10rem;
   font-weight: bold;
   color: var(--color-iris-100);
   &--fuschia {
     color: var(--color-fuschia-100);
+  }
+
+  @include notebook {
+    font-size: 7.5rem;
+    line-height: 1;
+  }
+
+  @include table {
+    font-size: 3.5rem;
   }
 }

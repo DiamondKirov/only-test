@@ -1,3 +1,5 @@
+@use "../../../app/styles/mixins.scss" as *;
+
 .circle-events {
   --circle-radius: 16.5625rem;
 
@@ -9,7 +11,9 @@
   border-radius: 50%;
   border: 1px solid var(--color-black-blue-10);
   transform: translate(-50%, -50%);
-
+  @include table {
+    display: none;
+  }
   &__item {
     position: absolute;
     top: 50%;
@@ -17,6 +21,7 @@
     transform: rotate(calc(360deg / var(--total) * var(--i)))
       translate(var(--circle-radius)) /* радиус */
       rotate(calc(-360deg / var(--total) * var(--i)));
+    transition: transform 0.6s ease;
     &-content {
       transform: translate(-50%, -50%);
     }

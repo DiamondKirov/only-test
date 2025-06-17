@@ -1,3 +1,4 @@
+@use "./mixins.scss" as *;
 :root {
   --color-black-blue: rgb(66, 86, 122);
   --color-black-blue-10: rgba(66, 86, 122, 0.1);
@@ -7,9 +8,14 @@
   --color-iris-100: rgb(93, 95, 239);
   --color-circle-border: rgba(48, 62, 88, 0.5);
   --color-circle-arrow: rgba(48, 62, 88, 100);
+  --color-slider-border: rgba(199, 205, 217, 0.5);
   --color-gradient: linear-gradient(to bottom, #3877ee, #ef5da8);
   --color-bg: #f4f5f9;
   --transition: 0.3s;
 
   --container-padding-size: 5rem;
+
+  @include table {
+    --container-padding-size: 1.25rem;
+  }
 }

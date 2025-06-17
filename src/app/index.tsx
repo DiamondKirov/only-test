@@ -4,9 +4,14 @@ import "normalize.css";
 import "./styles/fonts.scss";
 import "./styles/variables.scss";
 import "./styles/styles.scss";
+import { DateProvider } from "./providers/DateContext";
 
 const App = () => {
-  return <MainPage />;
+  return (
+    <DateProvider>
+      <MainPage />
+    </DateProvider>
+  );
 };
 
 const root = createRoot(document.getElementById("root")!);

@@ -1,5 +1,27 @@
+@use "../../../app/styles/mixins.scss" as *;
+
 .slider-event {
   position: relative;
+  transition: var(--transition);
+  @include table {
+    position: static;
+  }
+  &__title {
+    display: none;
+    margin-bottom: 1.25rem;
+    font-weight: bold;
+    @include table {
+      display: block;
+    }
+  }
+  & &__slider {
+    @include table {
+      position: static;
+      border-top: 1px solid var(--color-slider-border);
+      margin: 0 calc(-1 * var(--container-padding-size));
+      padding: 1.25rem var(--container-padding-size);
+    }
+  }
   &__navigation {
     position: absolute;
     top: 50%;
@@ -27,10 +49,61 @@
   }
   &__wrapper {
     &-navigation {
+      @include table {
+        display: none;
+      }
+    }
+    &-pagination {
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      width: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      @include table {
+        display: flex;
+      }
+    }
+  }
+  &__pagination {
+    width: 0.375rem;
+    height: 0.375rem;
+    margin: 0.375rem;
+    border-radius: 50%;
+    background: var(--color-black-blue);
+    opacity: 0.4;
+    &--active {
+      opacity: 1;
     }
   }
 
-  :global(.swiper-pagination) {
+  & &__slide {
+    width: 20rem;
+    transition: var(--transition);
+    @include table {
+      width: 10.375rem;
+    }
+    &:not(&:global(.swiper-slide-active)) {
+      @include table {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  :global(.swiper-pagination-bullets.swiper-pagination-horizontal) {
     display: none;
+    @include table {
+      top: auto;
+      bottom: 2rem;
+      display: block;
+    }
+
+    :global(.swiper-pagination-bullet) {
+    }
+  }
+
+  &--hide {
+    opacity: 0;
   }
 }

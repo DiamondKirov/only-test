@@ -1,5 +1,14 @@
+@use "../../../app/styles/mixins.scss" as *;
+
 .title {
   font-size: 3.5rem;
   line-height: 1.2;
   margin: 0;
+  @include notebook {
+    font-size: 3.5rem;
+  }
+
+  @include table {
+    font-size: 1.25rem;
+  }
 }

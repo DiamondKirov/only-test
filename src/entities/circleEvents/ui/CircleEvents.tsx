@@ -1,60 +1,67 @@
-import { FC } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import styles from "./CircleEvents.module.scss";
 import { CircleItem } from "../../../shared";
+import { useDateContext } from "../../../app/providers/DateContext";
+
+const OFFSET = 300;
 
 export const CircleEvents: FC = () => {
+  const { dates, setCurrentId, currentId } = useDateContext();
+
+  const [activeIndex, setActiveIndex] = useState(
+    dates.findIndex((el) => el.id == currentId)
+  );
+
+  const [angles, setAngles] = useState<number[]>(
+    Array.from(
+      { length: dates.length },
+      (_, i) => i * (360 / dates.length) + OFFSET
+    )
+  );
+
+  const handleClickItem = (id: number) => {
+    setCurrentId(id);
+  };
+
+  useEffect(() => {
+    const newActive = dates.findIndex((el) => el.id == currentId);
+    setActiveIndex(newActive);
+
+    const step = 360 / dates.length;
+    const delta =
+      ((activeIndex - newActive + dates.length) % dates.length) * step;
+
+    setAngles((prev) => prev.map((angle) => angle + delta));
+  }, [currentId]);
+
   return (
     <div
       className={styles["circle-events"]}
       style={
         {
-          "--total": 3,
+          "--total": dates.length,
         } as React.CSSProperties
       }
     >
-      <div
-        className={styles["circle-events__item"]}
-        style={
-          {
-            "--i": 1,
-          } as React.CSSProperties
-        }
-      >
-        <CircleItem
-          className={styles["circle-events__item-content"]}
-          title="Наука"
-          number={1}
-        />
-      </div>
-      <div
-        className={styles["circle-events__item"]}
-        style={
-          {
-            "--i": 2,
-          } as React.CSSProperties
-        }
-      >
-        <CircleItem
-          className={styles["circle-events__item-content"]}
-          title="Наука"
-          number={1}
-        />
-      </div>
-      <div
-        className={styles["circle-events__item"]}
-        style={
-          {
-            "--i": 3,
-          } as React.CSSProperties
-        }
-      >
-        <CircleItem
-          className={styles["circle-events__item-content"]}
-          title="Наука"
-          number={1}
-          isActive
-        />
-      </div>
+      {dates.map((date, index) => {
+        return (
+          <div
+            key={date.id}
+            className={styles["circle-events__item"]}
+            style={{
+              transform: `rotate(${angles[index]}deg) translate(var(--circle-radius)) rotate(-${angles[index]}deg)`,
+            }}
+          >
+            <CircleItem
+              className={styles["circle-events__item-content"]}
+              title={date.name}
+              number={index + 1}
+              isActive={date.id == currentId}
+              onClick={() => handleClickItem(date.id)}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

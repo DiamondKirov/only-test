@@ -1,0 +1,13 @@
+$breakpoint-notebook: 1769.98px;
+$breakpoint-table: 1099.98px;
+
+@mixin notebook {
+  @media (max-width: #{$breakpoint-notebook}) {
+    @content;
+  }
+}
+@mixin table {
+  @media (max-width: #{$breakpoint-table}) {
+    @content;
+  }
+}

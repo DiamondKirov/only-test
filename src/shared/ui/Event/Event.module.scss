@@ -1,0 +1,11 @@
+.event {
+  &__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5625rem;
+    margin-bottom: 1rem;
+    color: var(--color-blue);
+  }
+  &__body {
+    font-size: 1.125rem;
+  }
+}

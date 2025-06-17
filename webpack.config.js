@@ -9,7 +9,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".scss"],
   },
   module: {
     rules: [
@@ -23,22 +23,25 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.module\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [
           "style-loader",
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                localIdentName: "[name]__[local]__[hash:base64:5]",
+              },
             },
           },
-          "sass-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              // Prefer `dart-sass`, even if `sass-embedded` is available
+              implementation: require("sass"),
+            },
+          },
         ],
-      },
-      {
-        test: /\.scss$/,
-        exclude: /\.module\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },

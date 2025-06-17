@@ -1,0 +1,36 @@
+.slider-event {
+  position: relative;
+  &__navigation {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: calc(100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-white);
+    border: 0;
+    cursor: pointer;
+    &:first-of-type {
+      transform: rotate(180deg) translate(50%, 50%);
+      right: auto;
+      left: -2.5rem;
+    }
+
+    &--disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  &__wrapper {
+    &-navigation {
+    }
+  }
+
+  :global(.swiper-pagination) {
+    display: none;
+  }
+}

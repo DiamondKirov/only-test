@@ -1,0 +1,24 @@
+.circle-events {
+  --circle-radius: 16.5625rem;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(2 * var(--circle-radius));
+  height: calc(2 * var(--circle-radius));
+  border-radius: 50%;
+  border: 1px solid var(--color-black-blue-10);
+  transform: translate(-50%, -50%);
+
+  &__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(calc(360deg / var(--total) * var(--i)))
+      translate(var(--circle-radius)) /* радиус */
+      rotate(calc(-360deg / var(--total) * var(--i)));
+    &-content {
+      transform: translate(-50%, -50%);
+    }
+  }
+}

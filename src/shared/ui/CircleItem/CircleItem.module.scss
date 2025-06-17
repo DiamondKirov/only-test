@@ -1,0 +1,49 @@
+.circle-item {
+  --border-width: 3px;
+  --circle-width: 0;
+  --text-size: 0;
+
+  position: relative;
+  display: flex;
+  background: transparent;
+  border: 0;
+  padding: 0.25rem;
+  color: var(--color-black-blue);
+  transition: var(--transition);
+  cursor: pointer;
+  &:hover,
+  &--active {
+    --border-width: 1px;
+    --circle-width: 3.5rem;
+    --text-size: 1.25rem;
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--circle-width);
+    height: var(--circle-width);
+    border-radius: 100%;
+    border: var(--border-width) solid var(--color-circle-border);
+
+    background: var(--color-bg);
+    font-size: var(--text-size);
+    transition: var(--transition);
+  }
+  &__title {
+    position: absolute;
+    left: calc(100% + 1.25rem);
+    top: 50%;
+    display: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    transition: var(--transition);
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  &--active &__title {
+    display: flex;
+    opacity: 1;
+  }
+}

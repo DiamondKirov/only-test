@@ -1,0 +1,35 @@
+.circle-date {
+  margin: 6rem 0 8.5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0%;
+    height: 100vh;
+    width: 1px;
+    background: var(--color-black-blue-10);
+  }
+  &__wrapper {
+    &-year {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(-1 * var(--container-padding-size));
+        top: 50%;
+        width: 100vw;
+        height: 1px;
+        background: var(--color-black-blue-10);
+      }
+    }
+  }
+  &__year {
+    position: relative;
+  }
+}

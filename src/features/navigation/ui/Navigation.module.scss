@@ -1,0 +1,32 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  &__page {
+    font-size: 0.875rem;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    background: transparent;
+
+    border: 1px solid var(--color-circle-border);
+    cursor: pointer;
+    transition: var(--transition);
+    &:last-of-type {
+      transform: rotate(180deg);
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

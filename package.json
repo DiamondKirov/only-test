@@ -1,10 +1,13 @@
 {
   "name": "only-test",
   "version": "1.0.0",
+  "homepage": "https://diamondkirov.github.io/only-test",
   "scripts": {
     "start": "webpack serve --mode production",
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -21,6 +24,7 @@
     "@types/react-dom": "^19.1.6",
     "babel-loader": "^10.0.0",
     "css-loader": "^6.8.1",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.5.0",
     "sass": "^1.89.2",
     "sass-loader": "^16.0.5",

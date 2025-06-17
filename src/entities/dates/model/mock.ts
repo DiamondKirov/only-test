@@ -64,7 +64,7 @@ export const DATE_ITEMS: IDateItem[] = [
     to: 2019,
     items: [
       {
-        title: "2010",
+        title: "2011",
         description:
           "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
       },
@@ -92,7 +92,7 @@ export const DATE_ITEMS: IDateItem[] = [
     to: 2016,
     items: [
       {
-        title: "2010",
+        title: "2015",
         description:
           "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
       },
@@ -120,7 +120,7 @@ export const DATE_ITEMS: IDateItem[] = [
     to: 2018,
     items: [
       {
-        title: "2010",
+        title: "2013",
         description:
           "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
       },
@@ -148,7 +148,7 @@ export const DATE_ITEMS: IDateItem[] = [
     to: 2024,
     items: [
       {
-        title: "2010",
+        title: "2014",
         description:
           "13 сентября — частное солнечное затмение, видимое в Южной Африке и части Антарктиды",
       },

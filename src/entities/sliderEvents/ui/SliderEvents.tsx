@@ -1,15 +1,9 @@
 import { FC, useEffect, useRef, useState } from "react";
 import styles from "./SliderEvents.module.scss";
 import { Event } from "../../../shared";
-import { Pagination, A11y } from "swiper/modules";
+import { A11y } from "swiper/modules";
 
-import {
-  Swiper,
-  SwiperClass,
-  SwiperProps,
-  SwiperSlide,
-  useSwiper,
-} from "swiper/react";
+import { Swiper, SwiperClass, SwiperProps, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
